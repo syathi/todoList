@@ -5,11 +5,10 @@ const knex = require('../models/todoModel');
 
 /* GET home page. */
 rout.get('/', function(req, res, next) {
-	res.render('index');
 	knex.select("*").from("todo").then( (rows) => {
-  		  console.log(rows);
+		res.render('index', {todos: rows});
+		res.end();
   	});
-  	res.end();
 });
 
 rout.post('/create', () => {
