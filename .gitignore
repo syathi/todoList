@@ -1,3 +1,5 @@
 *DS_Store
 node_modules
 memo.txt
+todolist.sqlite3
+migrations

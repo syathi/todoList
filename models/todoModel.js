@@ -1,7 +1,11 @@
 var kn = require('knex')({
-    cliant: 'sqlite3',
+    client: 'sqlite3',
     connection: {
-        filename: "./todolist.sqlite3"
+        filename: './todolist.sqlite3'
+    },
+    migrations: {
+        directory: "../migrations",
+        tableName: "knex_migrations"
     }
 });
 module.exports = kn;

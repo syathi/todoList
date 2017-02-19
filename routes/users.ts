@@ -1,5 +1,5 @@
-var expr = require('express');
-let route = expr.Router();
+const expr = require('express');
+const route = expr.Router();
 
 /* GET users listing. */
 route.get('/', function(req, res, next) {
