@@ -3,17 +3,31 @@ extends layout
 block content
   h1 ToDo List
   p input todo.
-  p title
-  input(
-  	type="text"
-  	name="title"
+  form(
+    method="post"
+    action="/create"
   )
-  p discription
-  input(
-  	type="text"
-  	name="discription"
-  )
+    p title
+    input(
+  	  type="text"
+  	  name="title"
+    )
+    p discription
+    input(
+  	  type="text"
+  	  name="description"
+    )
+    br
+    button(
+      type="submit"
+      name="action"
+      value="submit"
+    ) submit
   h2 your todos
-  - todos.forEach( (todo) => {
-  p= todo.id + " title: " + todo.todo + " description: " + todo.description
-  - });
+  - if( todos ){
+    - todos.forEach( (todo) => {
+      p= todo.id + " title: " + todo.todo + " description: " + todo.description 
+    - });
+  - } else {
+    p no todo
+  -}
