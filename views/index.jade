@@ -26,7 +26,18 @@ block content
   h2 your todos
   - if( todos ){
     - todos.forEach( (todo) => {
-      p= todo.id + " title: " + todo.todo + " description: " + todo.description 
+      form(
+        method="post"
+        action="/delete/" + todo.id
+      )
+        //input(name="_method" value="delete")とかしても何故かdeleteメソッドになってくれない
+        //どうせajaxに直すのでとりあえずpost
+        p= todo.id + " title: " + todo.todo + " description: " + todo.description
+          button(
+            type="submit"
+            name="action"
+            value="delete"
+          ) delete
     - });
   - } else {
     p no todo

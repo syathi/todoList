@@ -20,11 +20,14 @@ rout.post('/create', (req, res, next) => {
 	console.log(req.body.description);
 });
 
-rout.delete('/delete/:id', (req, res, next) => {
-
+//HACK:this is not RESTful. chenge to delete method later.
+rout.post('/delete/:id', (req, res, next) => {
+	//knex('todo').where()
+	console.log(req.body);
+	res.end();
 });
 
-const selectTodo: any = (res: any) => {
+const selectTodo: (res: any) => void = (res: any): void => {
 	knex.select("*").from("todo").then( (rows) => {
 		res.render('index', {todos: rows});
 		res.end();
